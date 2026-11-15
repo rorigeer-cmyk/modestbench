@@ -162,3 +162,4 @@ public/fonts/
 .claude/settings.local.json
 .worktrees
 public/modestbench-config.schema.json
+.vscode/*
