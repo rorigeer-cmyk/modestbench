@@ -92,7 +92,6 @@
     "build:compile": "zshy",
     "build:schema": "tsx scripts/generate-schema.ts",
     "clean": "rm -rf dist",
-    "commitlint": "commitlint",
     "docs:build": "run-s build:schema docs:copy astro:build",
     "docs:copy": "tsx scripts/copy-docs.ts",
     "docs:dev": "run-s docs:copy astro:dev",
@@ -101,14 +100,13 @@
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier --write . && markdownlint-cli2 --fix \"**/*.md\"",
     "lint": "run-p -sl --aggregate-output lint:*",
-    "lint-staged": "lint-staged",
     "lint:eslint": "eslint .",
     "lint:knip": "knip",
     "lint:markdown": "markdownlint-cli2 \"**/*.md\"",
     "lint:prettier": "prettier --check .",
     "lint:spelling": "cspell .",
     "lint:types": "tsc --noEmit",
-    "prepare": "husky; run-s -s clean build",
+    "prepare": "run-s -s clean build",
     "pretest:base": "run-s -s build:compile",
     "start": "node dist/cli/index.js",
     "test": "run-s -s test:runtime test:types",
@@ -132,8 +130,6 @@
   "devDependencies": {
     "@astrojs/mdx": "4.3.14",
     "@astrojs/starlight": "0.37.7",
-    "@commitlint/cli": "20.5.3",
-    "@commitlint/config-conventional": "20.5.3",
     "@eslint/js": "9.39.5",
     "@jest/globals": "30.4.1",
     "@pasqal-io/starlight-client-mermaid": "0.1.0",
@@ -151,10 +147,8 @@
     "eslint-plugin-jsonc": "2.21.1",
     "eslint-plugin-perfectionist": "5.10.1",
     "globals": "16.5.0",
-    "husky": "9.1.7",
     "jest": "30.4.2",
     "knip": "5.88.1",
-    "lint-staged": "16.4.0",
     "markdownlint-cli2": "0.23.2",
     "markdownlint-cli2-formatter-pretty": "0.0.10",
     "mocha": "11.8.0",
@@ -220,30 +214,6 @@
         "src/adapters/*-register.ts"
       ]
     }
-  },
-  "lint-staged": {
-    "*.{astro,css}": [
-      "prettier --write"
-    ],
-    "*.{ts,cts,js,cjs,yml,json5}": [
-      "eslint --fix",
-      "prettier --write",
-      "cspell lint --no-must-find-files"
-    ],
-    "**/!(package-lock).json": [
-      "eslint --fix",
-      "prettier --write",
-      "cspell lint --no-must-find-files"
-    ],
-    "*.md": [
-      "markdownlint-cli2 --fix",
-      "prettier --write",
-      "cspell lint --no-must-find-files"
-    ],
-    "*.mdx": [
-      "prettier --write",
-      "cspell lint --no-must-find-files"
-    ]
   },
   "prettier": {
     "jsdocCommentLineStrategy": "keep",
