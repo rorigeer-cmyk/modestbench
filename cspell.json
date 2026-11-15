@@ -36,7 +36,8 @@
     "assets/*.txt",
     ".tmp",
     "*.cpuprofile",
-    "vendor"
+    "vendor",
+    "pnpm-lock.yaml"
   ],
   "ignoreRandomStrings": true,
   "ignoreWords": [

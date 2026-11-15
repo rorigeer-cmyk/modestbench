@@ -1,0 +1,16 @@
+minimumReleaseAge: 1440
+strictDepBuilds: true
+trustPolicy: no-downgrade
+shellEmulator: true
+# NOTE: - "" # Why
+trustPolicyExclude:
+  - '@boneskull/bargs@3.6.2' # FIXME: Delete when this package update
+  - 'chokidar@4.0.3' # FIXME: Delete when this package update
+blockExoticSubdeps: true
+verifyStoreIntegrity: true
+optimisticRepeatInstall: false
+nodeVersion: 24.22.2
+verifyDepsBeforeRun: install
+allowBuilds:
+  esbuild: true
+  sharp: true

@@ -23,9 +23,9 @@ jobs:
           - node-version: '26'
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
       - uses: ./.github/actions/prepare
         with:
           node-version: ${{ matrix.node-version }}
       - name: Test
-        run: npm test
+        run: pnpm test
